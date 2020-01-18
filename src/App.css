@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 * {
   box-sizing: border-box;
 }
 
-body, html {
+body, html, #root {
   height: 100%;
   width: 100%;
+  font-family: 'Poppins', sans-serif;
 }
 
 .App {
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   padding-top: 80px;
 }
@@ -101,7 +102,7 @@ body, html {
   position: absolute;
   height: 100px;
   width: 100%;
-  top: -1%;
+  left: 8.5%;
   padding: 10px;
 }
 
@@ -126,8 +127,16 @@ body, html {
 
 .b-note-container {
   width: 60%;
+  margin-left: 5.5rem;
   padding: 2rem;
-  padding-left: 4rem;
+}
+
+.b-note-container h1 {
+  font-size: 50px;
+}
+
+.b-note-container h2 {
+  color: #878181;
 }
 
 .b-reading-container {
@@ -139,7 +148,4 @@ body, html {
   width: 100%;
 }
 
-.b-data-container {
-  position: absolute;
-  top: 115%;
-}
+.b-data-container {}

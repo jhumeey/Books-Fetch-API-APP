@@ -31,11 +31,11 @@ function App() {
                     <div className="b-fetch-container">
                         <div className="b-dream-container" >
                             <div className="b-note-container">
-                                <h1>A Book is a Dream </h1>
-                                <h2>that you Hold in Your Hand</h2>
+                                <h1>More Than Just Books </h1>
+                                <h2>A book is a dream that you hold in your hand</h2>
                                 <div>
                                     <button className="fetch-button" onClick={fetchData}>
-                                        Fetch Data
+                                        Get Books
                         </button>
                                     <br />
                                 </div>
