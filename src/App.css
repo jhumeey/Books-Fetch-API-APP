@@ -176,7 +176,7 @@ body, html, #root {
     width: 50%;
     height: 150px;
     left: 2.5%;
-    top: 0%;
+    top: 0;
   }
   .b-note-container {
     padding: 10px;
@@ -192,6 +192,9 @@ body, html, #root {
   }
   .b-note-container h1 {
     font-size: 50px;
+  }
+  .b-note-container p {
+    font-size: 20px;
   }
   .b-intro-container {
     padding-top: 80px
