@@ -6,6 +6,8 @@
 body, html, #root {
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -32,14 +34,14 @@ body, html, #root {
   font-size: 1em;
   border-radius: 5px;
   cursor: pointer;
-  background-color: rgb(54, 202, 165);
+  background-color: #36caa5;
   border: none;
-  color: rgb(15, 66, 54);
+  color: #fff;
   transition: all 0.5s;
 }
 
 .fetch-button:hover {
-  background-color: rgb(40, 209, 209);
+  background-color: #28d1d1;
 }
 
 .books {
@@ -50,14 +52,15 @@ body, html, #root {
 .book {
   background: #fff;
   position: relative;
+  border: 1px solid rgba(0, 0, 0, .125);
   border-radius: 5px;
   padding: 20px;
   margin: 10px;
-  width: 47%;
+  width: 100%;
   color: #333;
   flex-basis: width;
   background-color: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .book h3 {
@@ -84,14 +87,14 @@ body, html, #root {
 .b-white-container {
   display: flex;
   position: relative;
-  height: 100%;
+  height: fit-content;
   width: 100%;
   flex-direction: column;
   background-color: #fff;
 }
 
 .b-grey-container {
-  background-color: gainsboro;
+  background-color: #f8f8f8;
   height: fit-content;
 }
 
@@ -99,17 +102,15 @@ body, html, #root {
   background-image: url('./b-logo.png');
   background-repeat: no-repeat;
   background-size: contain;
-  position: absolute;
   height: 100px;
   width: 100%;
-  left: 8.5%;
   padding: 10px;
+  margin-left: 76px;
 }
 
 .b-intro-container {
   display: inherit;
   flex-direction: column;
-  padding-top: 100px;
   width: 100%;
 }
 
@@ -121,31 +122,84 @@ body, html, #root {
 
 .b-dream-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 10px;
   width: 100%;
 }
 
 .b-note-container {
-  width: 60%;
-  margin-left: 5.5rem;
+  width: 100%;
   padding: 2rem;
+  text-align: center;
 }
 
 .b-note-container h1 {
-  font-size: 50px;
+  font-size: 30px;
 }
 
-.b-note-container h2 {
+.b-note-container p {
   color: #878181;
+  font-size: 20px;
 }
 
 .b-reading-container {
-  width: 40%;
-}
-
-.b-reading-container img {
-  max-width: 95%;
   width: 100%;
 }
 
-.b-data-container {}
+.b-reading-container img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.b-data-container {
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .book {
+    width: 47%;
+  }
+  .b-note-container h1 {
+    font-size: 40px;
+  }
+  .b-note-container p {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .book {
+    width: 47%;
+  }
+  .b-logo {
+    position: absolute;
+    width: 50%;
+    height: 150px;
+    left: 2.5%;
+    top: 0%;
+  }
+  .b-note-container {
+    padding: 10px;
+    padding-top: 50px;
+    padding-left: 6.8rem;
+    text-align: left;
+  }
+  .b-reading-container {
+    padding: 10px;
+  }
+  .b-dream-container {
+    flex-direction: row-reverse;
+  }
+  .b-note-container h1 {
+    font-size: 50px;
+  }
+  .b-intro-container {
+    padding-top: 80px
+  }
+}
+
+@media (min-width: 1300px) {
+  .book {
+    width: 31%;
+  }
+}

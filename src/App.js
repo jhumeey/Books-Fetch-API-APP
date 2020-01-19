@@ -30,22 +30,20 @@ function App() {
                 <div className="b-intro-container">
                     <div className="b-fetch-container">
                         <div className="b-dream-container" >
-                            <div className="b-note-container">
-                                <h1>More Than Just Books </h1>
-                                <h2>A book is a dream that you hold in your hand</h2>
-                                <div>
-                                    <button className="fetch-button" onClick={fetchData}>
-                                        Get Books
-                        </button>
-                                    <br />
-                                </div>
-                            </div>
                             <div className="b-reading-container">
                                 <img src={logo} alt="Logo" />
                             </div>
-                        </div>
-
-                        
+                            <div className="b-note-container">
+                                <h1>More Than Just Books </h1>
+                                <p>A book is a dream that you hold in your hand</p>
+                                <div>
+                                    <button className="fetch-button" onClick={fetchData}>
+                                        Get Books
+                                    </button>
+                                    <br />
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>
