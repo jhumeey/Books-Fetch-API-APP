@@ -4,7 +4,7 @@ import LoadingSpinner from './loadingSpinner';
 import { useFetchBooks } from './FetchBooks';
 
 function App() {
-    const { books, loading, error } = useFetchBooks();
+    const { books, loading } = useFetchBooks();
     return (
         <div className="b-main-container">
             <div className="b-white-container">
