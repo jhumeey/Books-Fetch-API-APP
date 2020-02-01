@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react'
 
 export const useFetchBooks = () => {
     
-    const [books, setBooks] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
+    const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [url, setUrl] = useState("");
 
     useEffect(() => {
 
         setLoading(true)
         setError(null)
 
-        fetch('https://www.anapioficeandfire.com/api/books?pageSize=30')
+        fetch(url)
             .then(res => res.json())
             .then((data) => {
                 setLoading(false)
@@ -21,6 +22,6 @@ export const useFetchBooks = () => {
                 setError(err)
                 setLoading(false)
             })
-    }, [])
-    return { books, loading, error }
+    }, [url])
+    return { books, loading, error, setUrl, setBooks }
 }

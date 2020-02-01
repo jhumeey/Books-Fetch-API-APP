@@ -4,7 +4,35 @@ import LoadingSpinner from './loadingSpinner';
 import { useFetchBooks } from './FetchBooks';
 
 function App() {
-    const { books, loading } = useFetchBooks();
+    const { books, loading, setUrl, setBooks} = useFetchBooks();
+    const elementStyle = {
+        border: 'solid',
+        borderRadius: '10px',
+        position: 'relative',
+        left: '10vh',
+        height: '3vh',
+        width: '20vh',
+        marginTop: '5vh',
+        marginBottom: '10vh'
+    }
+    const searchBooks = (event) => {
+        let newBooksList = [];
+        if (event.target.value !== "") {
+            console.log("yes")
+            console.log(books, event.target.value);
+            newBooksList = books.filter( book => {
+                return book.name.toLowerCase().includes(event.target.value.toLowerCase())
+            })
+        } else if(event.target.value === "" )  {
+            newBooksList = books.filter(book => {
+                return book.name.toLowerCase().includes(event.target.value.toLowerCase())
+            })
+        }
+        setBooks(newBooksList);
+        console.log(books);
+       
+    }
+
     return (
         <div className="b-main-container">
             <div className="b-white-container">
@@ -18,11 +46,14 @@ function App() {
                                 <img src={logo} alt="Logo" />
                             </div>
                             <div className="b-note-container">
+                                <input type="text" placeholder="Enter item to be searched"  style={elementStyle} onChange={(e) => searchBooks(e)} />
                                 <h1>More Than Just Books </h1>
                                 <p>A book is a dream that you hold in your hand</p>
                                 <div>
-                                    <button className="fetch-button" >
-                                        Get Books
+                                    <button className="fetch-button" onClick={() => setUrl(`https://www.anapioficeandfire.com/api/books?pageSize=${Math.floor(
+                                        Math.random() * 30
+                                    ) + 1}`)}>
+                                        {loading ? "Loading...." : "Get Books"}
                                     </button>
                                     <br />
                                 </div>
@@ -34,7 +65,7 @@ function App() {
             <div className="b-grey-container">
                 <div className="b-data-container">
                     <div className="books">
-                        { loading? <LoadingSpinner /> : books &&
+                        {loading ? <LoadingSpinner /> : books &&
                             books.map((book, index) => {
                                 const cleanedDate = new Date(book.released).toDateString();
                                 const authors = book.authors.join(', ');
