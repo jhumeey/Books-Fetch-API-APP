@@ -1,44 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './b-reading.svg';
-import LoadingSpinner from './loadingSpinner';
 import { useFetchBooks } from './FetchBooks';
 
 function App() {
-    const { books, loading, setUrl, setBooks} = useFetchBooks();
+    const { books, loading, setUrl } = useFetchBooks();
+    const [searchInput, setSearchInputValue] = useState("");
+    let newBooksList = books;
     const elementStyle = {
-        border: 'solid',
         borderRadius: '10px',
-        position: 'relative',
-        left: '10vh',
-        height: '3vh',
-        width: '20vh',
-        marginTop: '5vh',
-        marginBottom: '10vh'
+        position: 'absolute',
+        right: '10px',
+        height: '50px',
+        width: '200px',
+        marginTop: '4%',
+        boxShadow: '5px 5px 5px 3px rgb(224, 219, 219)',
+        padding: '10px',
+        border: 'none'
+
     }
-    const searchBooks = (event) => {
-        let newBooksList = [];
-        if (event.target.value !== "") {
-            console.log("yes")
-            console.log(books, event.target.value);
-            newBooksList = books.filter( book => {
-                return book.name.toLowerCase().includes(event.target.value.toLowerCase())
-            })
-        } else if(event.target.value === "" )  {
-            newBooksList = books.filter(book => {
-                return book.name.toLowerCase().includes(event.target.value.toLowerCase())
-            })
-        }
-        setBooks(newBooksList);
-        console.log(books);
-       
+    const handleChange = (e) => {
+        setSearchInputValue(e.target.value);
     }
+    const filtered = () => {
+        newBooksList = books.filter(book => {
+            return book.name.toLowerCase().includes(searchInput.toLowerCase())
+        })
+    }
+    filtered();
 
     return (
+
         <div className="b-main-container">
             <div className="b-white-container">
                 <div className="b-logo">
 
                 </div>
+                <input type="text" placeholder="Enter item to be searched" style={elementStyle} onChange={handleChange} />
                 <div className="b-intro-container">
                     <div className="b-fetch-container">
                         <div className="b-dream-container" >
@@ -46,9 +43,10 @@ function App() {
                                 <img src={logo} alt="Logo" />
                             </div>
                             <div className="b-note-container">
-                                <input type="text" placeholder="Enter item to be searched"  style={elementStyle} onChange={(e) => searchBooks(e)} />
                                 <h1>More Than Just Books </h1>
-                                <p>A book is a dream that you hold in your hand</p>
+                                <p>A book is a dream that you hold in your hand. <br />
+                                    Books are the ultimate Dumpees: put them down and they’ll wait for you forever; pay attention to them and they always love you back.
+                                </p>
                                 <div>
                                     <button className="fetch-button" onClick={() => setUrl(`https://www.anapioficeandfire.com/api/books?pageSize=${Math.floor(
                                         Math.random() * 30
@@ -65,8 +63,8 @@ function App() {
             <div className="b-grey-container">
                 <div className="b-data-container">
                     <div className="books">
-                        {loading ? <LoadingSpinner /> : books &&
-                            books.map((book, index) => {
+                        {newBooksList &&
+                            newBooksList.map((book, index) => {
                                 const cleanedDate = new Date(book.released).toDateString();
                                 const authors = book.authors.join(', ');
 

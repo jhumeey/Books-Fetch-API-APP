@@ -102,10 +102,10 @@ body, html, #root {
   background-image: url('./b-logo.png');
   background-repeat: no-repeat;
   background-size: contain;
-  height: 100px;
-  width: 100%;
+  height: 123px;
+  width: 97%;
   padding: 10px;
-  margin-left: 76px;
+  margin-left: 3%;
 }
 
 .b-intro-container {
@@ -175,7 +175,7 @@ body, html, #root {
     position: absolute;
     width: 50%;
     height: 150px;
-    left: 2.5%;
+    left: 8.5%;
     top: 0;
   }
   .b-note-container {
@@ -197,7 +197,7 @@ body, html, #root {
     font-size: 20px;
   }
   .b-intro-container {
-    padding-top: 80px
+    padding-top: 116px;
   }
 }
 
